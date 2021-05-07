@@ -1,21 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
   // your code here
-  const taskForm = document.getElementById('create-task-form');
+  const newTaskForm = document.getElementById('create-task-form');
+  const newTaskDesc = document.getElementById('new-task-description');
 
-  taskForm.addEventListener("submit", createTask)
+  newTaskForm.addEventListener("submit", addNewTask);
 });
 
-function createTask(e) {
+function addNewTask(e){
   e.preventDefault();
-  const newTaskDesc = document.getElementById('new-task-description');
-  const newTask = document.createElement('li');
+  const newTask = document.getElementById('new-task-description');
+  const task = document.createElement('li');
 
-  newTask.innerText = newTaskDesc.value;
+  task.innerText = newTask.value;
 
-  appendNewTask(newTask);
+  appendTaskList(task);
   e.target.reset();
 }
 
-function appendNewTask(task) {
+function appendTaskList(task) {
   document.getElementById('tasks').appendChild(task);
 }
